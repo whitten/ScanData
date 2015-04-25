@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  digest: MyString
+  created: 2015-04-23 19:27:50
+  size: 
+  folder: false
+
+two:
+  type: 
+  digest: MyString
+  created: 2015-04-23 19:27:50
+  size: 
+  folder: false
