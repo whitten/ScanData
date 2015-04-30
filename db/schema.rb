@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423233727) do
+ActiveRecord::Schema.define(version: 20150429012837) do
 
   create_table "aliases", force: :cascade do |t|
     t.string   "name"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20150423233727) do
     t.integer  "document_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "page"
+    t.string   "error"
   end
 
   add_index "images", ["document_id"], name: "index_images_on_document_id"
