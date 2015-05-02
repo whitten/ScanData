@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  hash: MyString
+  imageError: MyString
+  size: 
+  height: 
+  width: 
+  page: 
+  modified: 2015-04-30 20:32:16
+  folder: false
+  user_id: 
+  submission_id: 
+
+two:
+  name: MyString
+  type: 
+  hash: MyString
+  imageError: MyString
+  size: 
+  height: 
+  width: 
+  page: 
+  modified: 2015-04-30 20:32:16
+  folder: false
+  user_id: 
+  submission_id: 

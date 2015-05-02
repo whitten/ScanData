@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @submission.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @submission.type %>
+</p>
+
+<p>
+  <strong>Hash:</strong>
+  <%= @submission.hash %>
+</p>
+
+<p>
+  <strong>Imageerror:</strong>
+  <%= @submission.imageError %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @submission.size %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @submission.height %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @submission.width %>
+</p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @submission.page %>
+</p>
+
+<p>
+  <strong>Modified:</strong>
+  <%= @submission.modified %>
+</p>
+
+<p>
+  <strong>Folder:</strong>
+  <%= @submission.folder %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @submission.user %>
+</p>
+
+<p>
+  <strong>Submission:</strong>
+  <%= @submission.submission %>
+</p>
+
+<%= link_to 'Edit', edit_submission_path(@submission) %> |
+<%= link_to 'Back', submissions_path %>
