@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429012837) do
+ActiveRecord::Schema.define(version: 20150501153708) do
 
   create_table "aliases", force: :cascade do |t|
     t.string   "name"
@@ -27,12 +27,16 @@ ActiveRecord::Schema.define(version: 20150429012837) do
     t.integer  "document_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "dcmUrl"
+    t.string   "cbpUrl"
+    t.string   "gcdUrl"
+    t.string   "cbdbUrl"
   end
 
   add_index "archives", ["document_id"], name: "index_archives_on_document_id"
 
   create_table "documents", force: :cascade do |t|
-    t.string   "type",                  null: false
+    t.string   "file_type",             null: false
     t.string   "digest",     limit: 64, null: false
     t.datetime "created",               null: false
     t.integer  "size",                  null: false
@@ -59,6 +63,26 @@ ActiveRecord::Schema.define(version: 20150429012837) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "submissions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "file_type"
+    t.string   "hash"
+    t.string   "imageError"
+    t.integer  "size"
+    t.integer  "height"
+    t.integer  "width"
+    t.integer  "page"
+    t.datetime "modified"
+    t.boolean  "folder"
+    t.integer  "user_id"
+    t.integer  "submission_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "submissions", ["submission_id"], name: "index_submissions_on_submission_id"
+  add_index "submissions", ["user_id"], name: "index_submissions_on_user_id"
 
   create_table "tracks", force: :cascade do |t|
     t.integer  "user_id"
