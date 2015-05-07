@@ -3,7 +3,6 @@ class Document < ActiveRecord::Base
   validates :digest, presence: true, length: { is: 64 }, format: { with: /[0-9A-Fa-f]+/, message: "Not a SHA-256 digest."}
   validates :created, presence: true
   validates :size, presence: true, numericality: { only_integer: true }
-  validates :folder, presence: true
 
   has_many :inclusions
   has_many :aliases
