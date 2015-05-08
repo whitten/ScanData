@@ -5,15 +5,15 @@ See [ComicScanner](https://github.com/jcolag/ComicScanner) for a more detailed d
 
 However, in short, _ScanData_ is intended to be a web service similar in spirit to the venerable [Compact Disc Database](https://en.wikipedia.org/wiki/CDDB) or its successor [freedb](https://en.wikipedia.org/wiki/Freedb), except for comic book scan archive files.
 
-While it may change over time, the current vision is for _ScanData_ to be a straightforward [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) site , with a standard [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API for clients to use for accessing or updating the data.
+While it may change over time, the current vision is for _ScanData_ to be a straightforward [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) site, with a standard [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) API for clients to use for accessing or updating the data.
 
 ##Architecture and Schema
 
-Coming Soon.
+Coming Soon, though the architecture is primarily a straightforward Ruby on Rails application.
 
 ##API
 
-TBD
+TBD, though almost certainly using JSON-based REST calls.
 
 ##Data Storage
 
