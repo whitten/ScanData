@@ -13,7 +13,17 @@ Coming Soon, though the architecture is primarily a straightforward Ruby on Rail
 
 ##API
 
-TBD, though almost certainly using JSON-based REST calls.
+TBD, though almost certainly using [JSON](http://json.org/)-based [REST](https://en.wikipedia.org/wiki/Representational_state_transfer) calls.
+
+The current thinking is that three API calls are necessary to start.
+
+ - `/submission/new.json`, primarily for tools such as _ComicScanner_, allows `POST`ing of a JSON array of objects with automatically-readable file information that can be used to fill the various parts of the file model.  Such tools must notify the user that submissions are not complete until visiting the website to hand-input the remaining data.  (__Note__:  As the API becomes more flexible, it might be reasonable for a client program to collect this information from the user and `POST` it through the proper channel, but that would be a future plan.)
+
+ - `/documents/`_hash_`.json`, primarily for comic-reading applications, returns the relevant JSON `document`, `archive`, `image`, `alias`, and `inclusion` objects for the submitted hash value, minus any sensitive data.  (__Note__:  Eventually, this will have an interface that allows for `POST`ing a JSON array of hash values, returning arrays of objects.)
+
+ - `/aliases/`_name_`.json`, also for comic-reading applications, returns an array of JSON `document` objects that have the same or similar names.
+
+If [XML](https://en.wikipedia.org/wiki/XML) turns out to be popular, that can be turned on, as well, though it appears to be falling out of favor.
 
 ##Data Storage
 
