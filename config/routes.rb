@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   resources :submissions
   resources :documents
   resources :users
+  resources :aliases, only: [:index, :list] do
+    collection do
+      get 'list', to: 'aliases#index'
+      get 'list/:id', to: 'aliases#list'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
