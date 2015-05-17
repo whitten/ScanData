@@ -21,7 +21,7 @@ The current thinking is that three API calls are necessary to start.
 
  - `/documents/`_hash_`.json`, primarily for comic-reading applications, returns the relevant JSON `document`, `archive`, `image`, `alias`, and `inclusion` objects for the submitted hash value, minus any sensitive data.  (__Note__:  Eventually, this will have an interface that allows for `POST`ing a JSON array of hash values, returning arrays of objects.)
 
- - `/aliases/`_name_`.json`, also for comic-reading applications, returns an array of JSON `document` objects that have the same or similar names.
+ - `/aliases/list/`_name_`.json`, also for comic-reading applications, returns an array of JSON `document` objects that have the same or similar names.
 
 If [XML](https://en.wikipedia.org/wiki/XML) turns out to be popular, that can be turned on, as well, though it appears to be falling out of favor.
 
