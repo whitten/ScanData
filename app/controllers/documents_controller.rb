@@ -65,7 +65,11 @@ class DocumentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_document
       docs = Document.where(:digest => params[:id])
-      @document = docs.first
+      if docs.length > 0
+        @document = docs.first
+      else
+        @document = Document.new
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
