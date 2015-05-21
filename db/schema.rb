@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501153708) do
+ActiveRecord::Schema.define(version: 20150521005808) do
 
   create_table "aliases", force: :cascade do |t|
     t.string   "name"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20150501153708) do
   create_table "submissions", force: :cascade do |t|
     t.string   "name"
     t.string   "file_type"
-    t.string   "hash"
+    t.string   "digest"
     t.string   "imageError"
     t.integer  "size"
     t.integer  "height"
