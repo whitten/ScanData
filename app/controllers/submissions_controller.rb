@@ -1,5 +1,7 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }, :only => [:create]
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
   # GET /submissions
   # GET /submissions.json
@@ -24,7 +26,22 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
-    @submission = Submission.new(submission_params)
+    respond_to do |format|
+      format.html { @submission = Submission.new(submission_params) }
+      format.json {
+        @submission = Submission.new
+        @submission.name = params[:name]
+        @submission.file_type = params[:file_type]
+        @submission.digest = params[:digest]
+        @submission.imageError = params[:imageError]
+        @submission.modified = params[:modified]
+        @submission.size = params[:size]
+        @submission.height = params[:height]
+        @submission.width = params[:width]
+        @submission.page = params[:page]
+        @submission.folder = params[:folder]
+      }
+    end
 
     respond_to do |format|
       if @submission.save
