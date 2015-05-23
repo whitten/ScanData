@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150521005808) do
+ActiveRecord::Schema.define(version: 20150521231804) do
 
   create_table "aliases", force: :cascade do |t|
     t.string   "name"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150521005808) do
     t.integer  "submission_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "apikey"
   end
 
   add_index "submissions", ["submission_id"], name: "index_submissions_on_submission_id"
