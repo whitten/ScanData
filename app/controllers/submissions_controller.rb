@@ -29,17 +29,23 @@ class SubmissionsController < ApplicationController
     respond_to do |format|
       format.html { @submission = Submission.new(submission_params) }
       format.json {
-        @submission = Submission.new
-        @submission.name = params[:name]
-        @submission.file_type = params[:file_type]
-        @submission.digest = params[:digest]
-        @submission.imageError = params[:imageError]
-        @submission.modified = params[:modified]
-        @submission.size = params[:size]
-        @submission.height = params[:height]
-        @submission.width = params[:width]
-        @submission.page = params[:page]
-        @submission.folder = params[:folder]
+        if params.has_key?(:apikey)
+          @submission = Submission.new
+          @submission.name = params[:name]
+          @submission.file_type = params[:file_type]
+          @submission.digest = params[:digest]
+          @submission.imageError = params[:imageError]
+          @submission.modified = params[:modified]
+          @submission.size = params[:size]
+          @submission.height = params[:height]
+          @submission.width = params[:width]
+          @submission.page = params[:page]
+          @submission.folder = params[:folder]
+          @submission.apikey = params[:apikey]
+        else
+          render json: ["No API Key"], status: :unprocessable_entity
+          return
+        end
       }
     end
 
