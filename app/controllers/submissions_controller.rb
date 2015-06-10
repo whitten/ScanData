@@ -29,7 +29,7 @@ class SubmissionsController < ApplicationController
     respond_to do |format|
       format.html { @submission = Submission.new(submission_params) }
       format.json {
-        if params.has_key?(:apikey)
+        if params.has_key?(:apikey) and User.where(:apikey => params[:apikey]).length > 0
           @submission = Submission.new
           @submission.name = params[:name]
           @submission.file_type = params[:file_type]
@@ -43,7 +43,7 @@ class SubmissionsController < ApplicationController
           @submission.folder = params[:folder]
           @submission.apikey = params[:apikey]
         else
-          render json: ["No API Key"], status: :unprocessable_entity
+          render json: ["Invalid API Key"], status: :unprocessable_entity
           return
         end
       }
