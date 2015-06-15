@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :apikey %><br>
-    <%= f.text_field :apikey %>
+    [ <span id="key"><%= @user.apikey %></span> ]
   </div>
   <div class="actions">
     <%= f.submit %>
