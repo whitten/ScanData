@@ -1,7 +1,7 @@
 class SubmissionsController < ApplicationController
   before_action :set_submission, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }, :only => [:create]
-  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
+  skip_before_action :verify_authenticity_token, if: proc { |c| c.request.format == 'application/json' }, only: [:create]
+  protect_from_forgery with: :null_session, if: proc { |c| c.request.format == 'application/json' }
 
   # GET /submissions
   # GET /submissions.json
@@ -29,7 +29,7 @@ class SubmissionsController < ApplicationController
     respond_to do |format|
       format.html { @submission = Submission.new(submission_params) }
       format.json {
-        if params.has_key?(:apikey) and User.where(:apikey => params[:apikey]).length > 0
+        if params.key?(:apikey) && User.where(apikey: params[:apikey]).length > 0
           @submission = Submission.new
           @submission.name = params[:name]
           @submission.file_type = params[:file_type]
@@ -43,7 +43,7 @@ class SubmissionsController < ApplicationController
           @submission.folder = params[:folder]
           @submission.apikey = params[:apikey]
         else
-          render json: ["Invalid API Key"], status: :unprocessable_entity
+          render json: ['Invalid API Key'], status: :unprocessable_entity
           return
         end
       }
@@ -85,13 +85,13 @@ class SubmissionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_submission
-      @submission = Submission.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_submission
+    @submission = Submission.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def submission_params
-      params.require(:submission).permit(:name, :file_type, :hash, :imageError, :size, :height, :width, :page, :modified, :folder, :user_id, :submission_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def submission_params
+    params.require(:submission).permit(:name, :file_type, :hash, :imageError, :size, :height, :width, :page, :modified, :folder, :user_id, :submission_id)
+  end
 end

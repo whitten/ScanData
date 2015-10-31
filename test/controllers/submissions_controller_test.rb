@@ -5,18 +5,18 @@ class SubmissionsControllerTest < ActionController::TestCase
     @submission = submissions(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get :index
     assert_response :success
     assert_not_nil assigns(:submissions)
   end
 
-  test "should get new" do
+  test 'should get new' do
     get :new
     assert_response :success
   end
 
-  test "should create submission" do
+  test 'should create submission' do
     assert_difference('Submission.count') do
       post :create, submission: { folder: @submission.folder, hash: @submission.hash, height: @submission.height, imageError: @submission.imageError, modified: @submission.modified, name: @submission.name, page: @submission.page, size: @submission.size, submission_id: @submission.submission_id, type: @submission.type, user_id: @submission.user_id, width: @submission.width }
     end
@@ -24,22 +24,22 @@ class SubmissionsControllerTest < ActionController::TestCase
     assert_redirected_to submission_path(assigns(:submission))
   end
 
-  test "should show submission" do
+  test 'should show submission' do
     get :show, id: @submission
     assert_response :success
   end
 
-  test "should get edit" do
+  test 'should get edit' do
     get :edit, id: @submission
     assert_response :success
   end
 
-  test "should update submission" do
+  test 'should update submission' do
     patch :update, id: @submission, submission: { folder: @submission.folder, hash: @submission.hash, height: @submission.height, imageError: @submission.imageError, modified: @submission.modified, name: @submission.name, page: @submission.page, size: @submission.size, submission_id: @submission.submission_id, type: @submission.type, user_id: @submission.user_id, width: @submission.width }
     assert_redirected_to submission_path(assigns(:submission))
   end
 
-  test "should destroy submission" do
+  test 'should destroy submission' do
     assert_difference('Submission.count', -1) do
       delete :destroy, id: @submission
     end

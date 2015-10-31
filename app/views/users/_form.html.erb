@@ -18,6 +18,8 @@
   <div class="field">
     <%= f.label :apikey %><br>
     [ <span id="key"><%= @user.apikey %></span> ]
+    <%= link_to "New Key", @user, :remote true %>
+<!-- controller: "users", action: :reset_key, id: @user.id, remote: true %> -->
   </div>
   <div class="actions">
     <%= f.submit %>
