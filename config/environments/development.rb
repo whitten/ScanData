@@ -41,4 +41,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Set logger to standard output
+  config.logger = Logger.new(STDOUT)
 end
