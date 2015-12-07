@@ -1,5 +1,7 @@
+# Encoding: utf-8
 require 'test_helper'
 
+# User controller tests
 class UsersControllerTest < ActionController::TestCase
   setup do
     @user = users(:one)
