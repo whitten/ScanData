@@ -1,5 +1,7 @@
+# Encoding: utf-8
 require 'test_helper'
 
+# Submission controller test
 class SubmissionsControllerTest < ActionController::TestCase
   setup do
     @submission = submissions(:one)
@@ -18,7 +20,17 @@ class SubmissionsControllerTest < ActionController::TestCase
 
   test 'should create submission' do
     assert_difference('Submission.count') do
-      post :create, submission: { folder: @submission.folder, hash: @submission.hash, height: @submission.height, imageError: @submission.imageError, modified: @submission.modified, name: @submission.name, page: @submission.page, size: @submission.size, submission_id: @submission.submission_id, type: @submission.type, user_id: @submission.user_id, width: @submission.width }
+      post :create,
+           submission: { folder: @submission.folder, hash: @submission.hash,
+                         height: @submission.height,
+                         imageError: @submission.imageError,
+                         modified: @submission.modified,
+                         name: @submission.name, page: @submission.page,
+                         size: @submission.size,
+                         submission_id: @submission.submission_id,
+                         type: @submission.type,
+                         user_id: @submission.user_id,
+                         width: @submission.width }
     end
 
     assert_redirected_to submission_path(assigns(:submission))
@@ -35,7 +47,18 @@ class SubmissionsControllerTest < ActionController::TestCase
   end
 
   test 'should update submission' do
-    patch :update, id: @submission, submission: { folder: @submission.folder, hash: @submission.hash, height: @submission.height, imageError: @submission.imageError, modified: @submission.modified, name: @submission.name, page: @submission.page, size: @submission.size, submission_id: @submission.submission_id, type: @submission.type, user_id: @submission.user_id, width: @submission.width }
+    patch :update,
+          id: @submission,
+          submission: { folder: @submission.folder, hash: @submission.hash,
+                        height: @submission.height,
+                        imageError: @submission.imageError,
+                        modified: @submission.modified,
+                        name: @submission.name, page: @submission.page,
+                        size: @submission.size,
+                        submission_id: @submission.submission_id,
+                        type: @submission.type,
+                        user_id: @submission.user_id,
+                        width: @submission.width }
     assert_redirected_to submission_path(assigns(:submission))
   end
 
