@@ -1,5 +1,7 @@
+# Encoding: utf-8
 require 'test_helper'
 
+# Document controller test
 class DocumentsControllerTest < ActionController::TestCase
   setup do
     @document = documents(:one)
@@ -18,7 +20,11 @@ class DocumentsControllerTest < ActionController::TestCase
 
   test 'should create document' do
     assert_difference('Document.count') do
-      post :create, document: { created: @document.created, digest: @document.digest, folder: @document.folder, size: @document.size, type: @document.type }
+      post :create, document: { created: @document.created,
+                                digest: @document.digest,
+                                folder: @document.folder,
+                                size: @document.size,
+                                type: @document.type }
     end
 
     assert_redirected_to document_path(assigns(:document))
@@ -35,7 +41,12 @@ class DocumentsControllerTest < ActionController::TestCase
   end
 
   test 'should update document' do
-    patch :update, id: @document, document: { created: @document.created, digest: @document.digest, folder: @document.folder, size: @document.size, type: @document.type }
+    patch :update,
+          id: @document,
+          document: { created: @document.created,
+                      digest: @document.digest,
+                      folder: @document.folder, size: @document.size,
+                      type: @document.type }
     assert_redirected_to document_path(assigns(:document))
   end
 
