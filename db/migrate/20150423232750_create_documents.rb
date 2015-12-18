@@ -1,3 +1,5 @@
+# Encoding: utf-8
+# Create document
 class CreateDocuments < ActiveRecord::Migration
   def change
     create_table :documents do |t|
