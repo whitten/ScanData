@@ -1,3 +1,5 @@
+# Encoding: utf-8
+# Create inclusion
 class CreateInclusions < ActiveRecord::Migration
   def change
     create_table :inclusions do |t|
