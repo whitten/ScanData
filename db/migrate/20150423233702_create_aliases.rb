@@ -1,3 +1,5 @@
+# Encoding: utf-8
+# Create alias
 class CreateAliases < ActiveRecord::Migration
   def change
     create_table :aliases do |t|
