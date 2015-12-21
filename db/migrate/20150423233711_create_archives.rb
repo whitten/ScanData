@@ -1,3 +1,5 @@
+# Encoding: utf-8
+# Create archive
 class CreateArchives < ActiveRecord::Migration
   def change
     create_table :archives do |t|
