@@ -1,3 +1,5 @@
+# Encoding: utf-8
+# Add URL to archive
 class AddUrlsToArchive < ActiveRecord::Migration
   def change
     add_column :archives, :dcmUrl, :string
