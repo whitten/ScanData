@@ -1,3 +1,5 @@
+# Encoding: utf-8
+# Add devise to user
 class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
     change_table(:users) do |t|
@@ -26,11 +28,13 @@ class AddDeviseToUsers < ActiveRecord::Migration
       # t.string   :unconfirmed_email # Only if using reconfirmable
 
       ## Lockable
-      # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
+      # t.integer  :failed_attempts, default: 0, null: false # Only if
+      #   lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      # Uncomment below if timestamps were not included in your original model.
+      # Uncomment below if timestamps were not included in your original
+      #   model.
       # t.timestamps null: false
     end
 
@@ -41,8 +45,9 @@ class AddDeviseToUsers < ActiveRecord::Migration
   end
 
   def self.down
-    # By default, we don't want to make any assumption about how to roll back a migration when your
-    # model already existed. Please edit below which fields you would like to remove in this migration.
+    # By default, we don't want to make any assumption about how to roll
+    # back a migration when your model already existed. Please edit below
+    # which fields you would like to remove in this migration.
     fail ActiveRecord::IrreversibleMigration
   end
 end
