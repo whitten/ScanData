@@ -63,18 +63,19 @@ class DocumentsController < ApplicationController
   end
 
   private
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def document_params
     params.require(:document).permit(:file_type, :digest, :created, :size, :folder)
   end
 
   # Use callbacks to share common setup or constraints between actions.
-#  def set_document
-#    docs = Document.where(digest: params[:id])
-#    if docs.length > 0
-#      @document = docs.first
-#    else
-#      @document = Document.new
-#    end
-#  end
+  #  def set_document
+  #    docs = Document.where(digest: params[:id])
+  #    if docs.length > 0
+  #      @document = docs.first
+  #    else
+  #      @document = Document.new
+  #    end
+  #  end
 end
