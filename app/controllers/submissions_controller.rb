@@ -57,15 +57,17 @@ class SubmissionsController < ApplicationController
 
     respond_to do |format|
       if @submission.save
-        format.html do redirect_to @submission,
-                                   notice: 'Submission was successfully'\
-                                             'created.'
+        format.html do
+          redirect_to @submission,
+                      notice: 'Submission was successfully'\
+                                'created.'
         end
         format.json { render :show, status: :created, location: @submission }
       else
         format.html { render :new }
-        format.json do render json: @submission.errors,
-                              status: :unprocessable_entity
+        format.json do
+          render json: @submission.errors,
+                 status: :unprocessable_entity
         end
       end
     end
@@ -76,15 +78,17 @@ class SubmissionsController < ApplicationController
   def update
     respond_to do |format|
       if @submission.update(submission_params)
-        format.html do redirect_to @submission,
-                                   notice: 'Submission was successfully'\
-                                           'updated.'
+        format.html do
+          redirect_to @submission,
+                      notice: 'Submission was successfully'\
+                              'updated.'
         end
         format.json { render :show, status: :ok, location: @submission }
       else
         format.html { render :edit }
-        format.json do render json: @submission.errors,
-                              status: :unprocessable_entity
+        format.json do
+          render json: @submission.errors,
+                 status: :unprocessable_entity
         end
       end
     end
@@ -95,9 +99,10 @@ class SubmissionsController < ApplicationController
   def destroy
     @submission.destroy
     respond_to do |format|
-      format.html do redirect_to submissions_url,
-                                 notice: 'Submission was successfully' \
-                                           'destroyed.'
+      format.html do
+        redirect_to submissions_url,
+                    notice: 'Submission was successfully' \
+                              'destroyed.'
       end
       format.json { head :no_content }
     end
