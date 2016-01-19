@@ -15,7 +15,6 @@
 # control system.
 
 ActiveRecord::Schema.define(version: 20_150_606_132_754) do
-
   create_table 'aliases', force: :cascade do |t|
     t.string 'name'
     t.integer 'document_id'
@@ -39,9 +38,9 @@ ActiveRecord::Schema.define(version: 20_150_606_132_754) do
   add_index 'archives', ['document_id'], name: 'index_archives_on_document_id'
 
   create_table 'documents', force: :cascade do |t|
-    t.string 'file_type',             null: false
-    t.string 'digest',     limit: 64, null: false
-    t.datetime 'created',               null: false
+    t.string 'file_type', null: false
+    t.string 'digest', limit: 64, null: false
+    t.datetime 'created', null: false
     t.integer 'size',                  null: false
     t.boolean 'folder',                null: false
     t.datetime 'created_at',            null: false
@@ -109,7 +108,7 @@ ActiveRecord::Schema.define(version: 20_150_606_132_754) do
     t.string 'reset_password_token'
     t.datetime 'reset_password_sent_at'
     t.datetime 'remember_created_at'
-    t.integer 'sign_in_count',          default: 0,  null: false
+    t.integer 'sign_in_count', default: 0, null: false
     t.datetime 'current_sign_in_at'
     t.datetime 'last_sign_in_at'
     t.string 'current_sign_in_ip'
