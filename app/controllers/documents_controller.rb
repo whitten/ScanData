@@ -64,7 +64,8 @@ class DocumentsController < ApplicationController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
+  # Never trust parameters from the scary internet, only allow the white
+  #  list through.
   def document_params
     params.require(:document).permit(:file_type, :digest, :created, :size, :folder)
   end
